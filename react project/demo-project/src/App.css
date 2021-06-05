@@ -1,0 +1,72 @@
+/* $myColor: red; */
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+        /* box */
+#quote-box{
+  width: 450px;
+  border-radius: 4px;
+  margin: auto;
+  border: 2px solid black;
+  padding: 40px 50px;
+  background-color: white;
+}
+
+#text{
+  text-align: center;
+  font-size: 37px;
+}
+#auther{ 
+  font-size: 22px;
+  text-align: right;
+  padding-top: 20px;
+}
+#links{
+  margin-top: 20px;
+  display: flex;
+}
+
+
+.link{
+  background-color: red;
+  width: 49px;
+  height: 45px;
+  margin: 15px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+}
+
+#tweet-quote{
+  float: left;
+}
+#new-quote{
+  background-color: red;
+  width: auto;
+  padding: 10px;
+}
+
+
+
+       /* para */
+
+#para{
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}

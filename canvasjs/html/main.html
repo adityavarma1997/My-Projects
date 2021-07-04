@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../javascript/main.js"></script>
+    <title>My Paint</title>
+</head>
+<body>
+    <div id="main">
+        <h1 id="heading">Simple Paint App</h1>
+        <div id="canvasdiv">
+            <canvas id="canvas" ></canvas>
+            <script>
+                var ctx, 
+    canvas,
+    dragging = false,
+    dragStartLocation,
+    snapshot;
+
+function getCanvasCoordinates(event) {
+    var x = event.clientX - canvas.getBoundingClientRect().left;
+    var y = event.clientY - canvas.getBoundingClientRect().top;
+
+    return {x: x, y: y};
+}
+
+function takeSnapShot() {
+    snapshot = ctx.getImageData(0, 0, canvas.width, canvas.height);
+}
+
+function restoreSnapShot() {
+    ctx.putImageData(snapshot, 0, 0);
+    console.log(snapshot)
+}
+function draw(position) {
+
+    ctx.beginPath();
+    ctx.fillStyle = '#'+Math.floor(Math.random()*16777215).toString(16);
+
+    ctx.moveTo(dragStartLocation.x, dragStartLocation.y);
+    ctx.lineTo(position.x, position.y);
+    ctx.lineTo(position.x - ((position.x - dragStartLocation.x) * 2), position.y)
+    ctx.closePath();
+    ctx.stroke();
+    ctx.fill();
+    
+    
+}
+function drag(event) {
+    var position;
+    if (dragging === true) {
+        restoreSnapShot();
+        
+    }
+}
+
+function stop(event) {
+    dragging = false;
+    restoreSnapShot();
+    var position = getCanvasCoordinates(event);
+    if (dragStartLocation.x !== position.x) {
+        if (dragStartLocation.y > position.y) {
+            let tempX = dragStartLocation.x;
+            let tempY = dragStartLocation.y;
+            dragStartLocation.x = position.x;
+            dragStartLocation.y = position.y;
+            position.x = tempX;
+            position.y = tempY;
+        }
+    }
+    draw(position);
+}
+
+function start(event) {
+    dragging = true;
+    dragStartLocation = getCanvasCoordinates(event);
+    takeSnapShot();
+}
+
+function remove() {
+    console.log('clear');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+
+
+
+function init() {
+    canvas = document.getElementById('canvas');
+    var parent = document.getElementById("canvasdiv");
+    canvas.width= parent.offsetWidth;
+    canvas.height= parent.offsetHeight;
+    ctx = canvas.getContext('2d');
+    var clearCanvas = document.getElementById('clear');
+    
+    
+    canvas.addEventListener('mousedown', start);
+    canvas.addEventListener('mousemove', drag);
+    canvas.addEventListener('mouseup', stop);
+    clearCanvas.addEventListener('click', remove);
+
+    
+}
+window.addEventListener('load', init);
+            </script>
+        </div>
+        
+        <button type="button" id="clear">clear</button>
+    </div>
+</body>
+</html>

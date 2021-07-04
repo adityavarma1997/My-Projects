@@ -1,0 +1,49 @@
+.lessonPlan{
+    background-color:#F1F1F1;
+    padding-top: 3%;
+    margin-left: 165px;
+    position: absolute;
+    margin-top: 100px;
+    width: 88%;
+    height: 79%;
+
+}
+.video{
+    display: flex;
+    padding-left: 20px;
+}
+#ficon{
+    padding-right: 10px;
+    padding-top: 4px;
+}
+text{
+    background-color: white;
+}
+#insertURL{
+    margin-top: 25px;
+    margin-left: 150px;
+    width: 60%;
+    background-color: white;
+    height: 33px;
+    border-radius: 7px;
+    display: flex;
+    padding-left: 4px;
+    align-items: center;
+}
+
+
+#or{
+    margin-left: 400px;
+}
+#upload{
+    background-color: white;
+    margin-bottom: 30px;
+    margin-left: 150px;
+    width: 120px;
+    height: 120px;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+}

@@ -5,7 +5,7 @@ import { faCog } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faAmbulance } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 class navBar extends Component {
     // constructor() {
@@ -33,27 +33,27 @@ class navBar extends Component {
                 <ul className="icons">
                     
                     <li className="icon">
-                        
-                        <Link to="/students" className="link" activeClassName="active"  exact>
+                    
+                        <NavLink to="/students" className="link" activeClassName="active"  exact >
                         <div class="ficon"><FontAwesomeIcon icon={faUser} size='2x' color='black'/></div>
                         <div class="text"><span>Students</span></div>
-                        </Link>
+                        </NavLink>
                     </li>
                     
                     <li className="icon">
                         
-                        <Link to="/lessonPath" className="link" activeClassName="active" exact>
+                        <NavLink to="/lessonPath" className="link" activeClassName="active" exact>
                         <div class="ficon"><FontAwesomeIcon icon={faBook} size='2x' color='black'/></div>
                         <div class="text"><span>Lesson Plan</span></div>
-                        </Link>
+                        </NavLink>
                     </li>
 
                     <li className="icon">
                         
-                        <Link to="/settings"  className="link" activeClassName="active" exact>
+                        <NavLink to="/settings"  className="link" activeClassName="active" exact>
                         <div class="ficon"><FontAwesomeIcon icon={faCog} size='2x' color='black'/></div>
                         <div class="text"><span>Settings</span></div>
-                        </Link>
+                        </NavLink>
                     </li>
                 </ul>
                 
